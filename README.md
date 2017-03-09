@@ -6,7 +6,7 @@
 cd $HOME
 git clone https://github.com/MobinDehghani/iManager.git
 cd iManager
-chmod +x beyond.sh
-./beyond.sh install
-./beyond.sh 
+chmod +x launcher.sh
+./launcher.sh install
+./launcher.sh 
 ```
