@@ -11,4 +11,4 @@ chmod +x beyond.sh
 ./beyond.sh 
 ```
 
-* **Our Channel [@PrivateTeam](https://telegram.me/PrivateTeam)**
+**Our Channel [@PrivateTeam](https://telegram.me/PrivateTeam)**
