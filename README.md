@@ -1,9 +1,9 @@
 # [iManager](https://telegram.me/iMngr)
 
-#**iManager Source - Based on BDReborn [Beyond]**
+***iManager Source - Based on BDReborn (Beyond)***
 
 
-# Installation
+* **Installation**
 
 ```sh
 # Let's install the bot.
@@ -16,4 +16,4 @@ chmod +x beyond.sh
 # Enter a phone number & confirmation code.
 ```
 
-## Our Channel [@PrivateTeam](https://telegram.me/PrivateTeam)
+# Our Channel [@PrivateTeam](https://telegram.me/PrivateTeam)
