@@ -10,5 +10,3 @@ chmod +x beyond.sh
 ./beyond.sh install
 ./beyond.sh 
 ```
-
-**Our Channel [@PrivateTeam](https://telegram.me/PrivateTeam)**
