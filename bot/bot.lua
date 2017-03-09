@@ -1,6 +1,3 @@
--- #Beyond Reborn Robot
--- #@BeyondTeam
-
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
 feedparser = (loadfile "./libs/feedparser.lua")()
@@ -56,52 +53,33 @@ end
 
 function save_config( )
 	serialize_to_file(_config, './data/config.lua')
-	print ('saved config into ./data/config.lua')
+	print ('Config was Created !')
 end
 
 function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
 	config = {
     enabled_plugins = {
-		"banhammer",
-		"groupmanager",
-		"msg-checks",
-		"plugins",
-		"tools",
-		"fun",
-		"info"
+		"BanHammer",
+		"GroupManager",
+		"Msg-Checks",
+		"Plugins",
+		"Tools",
+		"Fun",
+		"Info"
 	},
-    sudo_users = {157059515},
-    admins = {},
+    sudo_users = {160149610,0000000},
+    admins = {160149610,0000000},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》Beyond Reborn v4.0
-An advanced administration bot based on https://valtman.name/telegram-cli
+    info_text = [[*iManager v3* - Free Source
 
-》https://github.com/BeyondTeam/BDReborn 
+*iManager* Based on *Beyond Source* and Developed withe *Love* in *Iran* :D
 
-》Admins :
-》@SoLiD ➣ Founder & Developer《
-》@Makan ➣ Developer《
-》@Rixel ➣ Developer 《
-》@Exacute ➣ Developer《
-》@To0fan ➣ Developer《
-》@CiveY ➣ Developer
-》@ArmanDev ➣ Manager《
-》@MrPars ➣ Manager《
+- Developer : @MobinDev
+- Channel : @iMngr
 
-》Special thanks to :
-》@Vysheng
-》@MrHalix
-》@K_a_I_i_I_i_n_u_x
-》@Nero_Dev
-》And Beyond Team Members
-
-》Our channel :
-》@BeyondTeam《
-
-》Our website :
-》http://BeyondTeam.ir
+new Updates , Soon...
 ]],
   }
 	serialize_to_file(config, './data/config.lua')
@@ -114,14 +92,14 @@ function load_config( )
 	local f = io.open('./data/config.lua', "r")
   -- If config.lua doesn't exist
 	if not f then
-		print ("Created new config file: ./data/config.lua")
+		print ("Config was Created !")
 		create_config()
 	else
 		f:close()
 	end
 	local config = loadfile ("./data/config.lua")()
 	for v,user in pairs(config.sudo_users) do
-		print("Allowed user: " .. user)
+		print("Sudo : " .. user)
 	end
 	return config
 end
@@ -131,7 +109,7 @@ _config = load_config()
 function load_plugins()
 	local config = loadfile ("./data/config.lua")()
 	for k, v in pairs(config.enabled_plugins) do
-		print("Loading Plugins", v)
+		print("loaded", v)
 		local ok, err =  pcall(function()
 		local t = loadfile("plugins/"..v..'.lua')()
 		plugins[v] = t
@@ -188,7 +166,7 @@ local function is_plugin_disabled_on_chat(plugin_name, receiver)
     -- Checks if plugin is disabled on this chat
     for disabled_plugin,disabled in pairs(disabled_chats[receiver]) do
       if disabled_plugin == plugin_name and disabled then
-        local warning = '_Plugin_ *'..check_markdown(disabled_plugin)..'* _is disabled on this chat_'
+        local warning = ''
         print(warning)
 						tdcli.sendMessage(receiver, "", 0, warning, 0, "md")
         return true
